@@ -6,14 +6,17 @@ var wins = 0;
 var lossesTot = 0;
 var guessesLeft = 9;
 
+//Creating an empty array for the guessed letters
+var guessed = [];
+
+//Randomly shooses a choice from the option alphabet string
+var getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+
 //This function is run whenver the user presses a key.
 document.onkeyup = function (event) {
 
-    //Determines the key and puts it in lowercase
+    //Determines the key, puts it in lowercase and assigns to userGuess
     var userGuess = event.key.toLowerCase();
-
-    //Randomly shooses a choice from the option alphabet string
-    var getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
     //This logic determines the out come of the round (win/loss/tie), and increments the approptiate number
     if (userGuess === getRandomLetter) {
@@ -27,9 +30,10 @@ document.onkeyup = function (event) {
     //This logic determines what to do if the person runs out of turns
     if (guessesLeft < 1) {
         lossesTot++;
-        var getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+        getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
         guessesLeft = 9;
     }
+    
 
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("lossesTot").innerHTML = lossesTot;
