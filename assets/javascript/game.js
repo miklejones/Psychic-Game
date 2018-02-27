@@ -1,7 +1,10 @@
 
 var wins = 0;
-var losses = 0;
+var lossesTot = 0;
 var guessesLeft = 9;
+document.getElementById("wins").innerHTML = wins;
+document.getElementById("losses").innerHTML = lossesTot;
+document.getElementById("guesses").innerHTML = guessesLeft;
 
 
 //Determine Computer letter
@@ -20,17 +23,13 @@ document.onkeyup = function (event) {
     getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
   } else {
     guessesLeft--;
-  }
+  };
+  document.getElementById("wins").innerHTML = wins;
+  document.getElementById("losses").innerHTML = lossesTot;
+  document.getElementById("guesses").innerHTML = guessesLeft;
 }
 
-var html =
-"<p>You chose: " + userGuess + "</p>" +
-"<p>The computer chose: " + getRandomLetter + "</p>" +
-"<p>wins: " + wins + "</p>" +
-"<p>losses: " + losses + "</p>" +
-"<p>ties: " + ties + "</p>";
 
-document.querySelector("#psychic").innerHTML = html;
 
 
 
