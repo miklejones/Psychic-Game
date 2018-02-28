@@ -18,13 +18,20 @@ document.onkeyup = function (event) {
     //Determines the key, puts it in lowercase and assigns to userGuess
     var userGuess = event.key.toLowerCase();
 
+    var alphaCheck = alphabet.includes(userGuess);
+
     //This logic determines the out come of the round (win/loss/tie), and increments the approptiate number
     if (userGuess === getRandomLetter) {
         wins++;
         guessesLeft = 9;
         getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+        guessed = [];
+        document.getElementById("guessedLetters").innerHTML = guessed;
     } else {
         guessesLeft--;
+
+        //add letter to guessed array
+        guessed.push(event.key);
     };
 
     //This logic determines what to do if the person runs out of turns
@@ -32,12 +39,14 @@ document.onkeyup = function (event) {
         lossesTot++;
         getRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
         guessesLeft = 9;
+        guessed = [];
+        document.getElementById("guessedLetters").innerHTML = guessed;
     }
     
-
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("lossesTot").innerHTML = lossesTot;
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("guessedLetters").innerHTML = guessed;
 }
 
 
