@@ -42,7 +42,7 @@ document.onkeyup = function (event) {
         guessed = [];
         document.getElementById("guessedLetters").innerHTML = guessed;
     }
-    
+
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("lossesTot").innerHTML = lossesTot;
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
